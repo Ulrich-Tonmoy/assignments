@@ -1,5 +1,3 @@
-# [Live](https://ulrich-tonmoy.github.io/prothom-alo/)
-
 <img alt="website" src="https://github.com/Ulrich-Tonmoy/assignments/blob/main/prothom-alo/website.png" />
 # Getting Started with Create React App
 
