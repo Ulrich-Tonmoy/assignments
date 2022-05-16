@@ -1,0 +1,58 @@
+$border-color: #e6e6e6;
+$background-color: #fff;
+$font-color: #000;
+$description-color: #555;
+$title-size: 0.9rem;
+$description-size: 0.7rem;
+$font-stack: "Roboto", Arial, sans-serif;
+
+%flex {
+    display: flex;
+    align-items: center;
+}
+
+@mixin flexColumn {
+    @extend %flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+@mixin flexCenter {
+    @extend %flex;
+    justify-content: center;
+}
+
+@mixin mq($size) {
+    @media only screen and (max-width: $size) {
+        @content;
+    }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-color: $background-color;
+    color: $font-color;
+    max-width: 100vw;
+    min-height: 100vh;
+    font-family: $font-stack;
+    font-size: 22px;
+}
+
+main {
+    @include flexColumn;
+    min-height: calc(100vh - 60px);
+}
+
+img {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
