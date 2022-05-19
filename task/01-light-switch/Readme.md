@@ -1,0 +1,2 @@
+<img alt="Preview" src="https://github.com/Ulrich-Tonmoy/assignments/blob/main/task/01-light-switch/Preview (1).png" />
+<img alt="Preview" src="https://github.com/Ulrich-Tonmoy/assignments/blob/main/task/01-light-switch/Preview (2).png" />
