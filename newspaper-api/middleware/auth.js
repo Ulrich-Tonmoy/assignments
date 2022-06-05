@@ -13,7 +13,7 @@ export const AdminAccessCheck = async (req, res, next) => {
         const user = await User.findById(decodeData?.id);
         const type = await Type.findById(user?.typeId);
 
-        if (type.type !== "Admin")
+        if (type.typeName !== "Admin")
             res.status(401).json({
                 message: "User does not have the required permissions to proceed!!",
             });
@@ -34,7 +34,7 @@ export const EditorAccessCheck = async (req, res, next) => {
         const user = await User.findById(decodeData?.id);
         const type = await Type.findById(user?.typeId);
 
-        if (type.type === "Editor" && user?.isActive === true) next();
+        if (type.typeName === "Editor" && user?.isActive === true) next();
         else
             res.status(401).json({
                 message:

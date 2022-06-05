@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const typeSchema = mongoose.Schema({
-    type: String,
+    typeName: String,
 });
 
 const Type = mongoose.model("Type", typeSchema);

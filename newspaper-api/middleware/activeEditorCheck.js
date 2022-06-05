@@ -4,8 +4,8 @@ import Type from "./../models/type.js";
 const activeEditorCheck = async (req, res, next) => {
     const { isActive } = req.body;
     try {
-        const type = await Type.find({ type: "Editor" });
-        const activeEditor = await User.find({ $and: [{ typeId: type.type }, { isActive: true }] });
+        const type = await Type.findOne({ typeName: "Editor" });
+        const activeEditor = await User.find({ $and: [{ typeId: type?._id }, { isActive: true }] });
 
         if (isActive) {
             if (activeEditor.length >= 1)

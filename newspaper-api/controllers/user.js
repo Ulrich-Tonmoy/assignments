@@ -62,7 +62,7 @@ export const singup = async (req, res) => {
 
         const hashedPassword = await bcrypt.hash(user.password, 10);
 
-        const type = await Type.findOne({ type: user.type });
+        const type = await Type.findOne({ typeName: user.type });
         if (!type) return res.status(400).json({ message: "Invalid User Type" });
 
         const result = await User.create({
@@ -88,7 +88,7 @@ export const updateUser = async (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send("Not a valid action");
 
     try {
-        const type = await Type.findOne({ type: user.type });
+        const type = await Type.findOne({ typeName: user.type });
         if (!type) return res.status(400).json({ message: "Invalid User Type" });
 
         const updatedUser = await User.findByIdAndUpdate(

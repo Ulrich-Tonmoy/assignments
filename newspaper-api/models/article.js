@@ -2,10 +2,10 @@ import mongoose from "mongoose";
 
 const articleSchema = mongoose.Schema({
     title: String,
-	author: String,
+    authorId: String,
     image: String,
-    Description: String,
-    tags: [String],
+    description: String,
+    tagIds: [String],
     createdAt: {
         type: Date,
         default: new Date(),

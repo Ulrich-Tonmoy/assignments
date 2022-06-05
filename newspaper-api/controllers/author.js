@@ -1,23 +1,23 @@
 import mongoose from "mongoose";
 
-import Type from "../models/type.js";
+import Author from "../models/author.js";
 
-export const getAllTypes = async (req, res) => {
+export const getAllAuthors = async (req, res) => {
     try {
-        const types = await Type.find({});
+        const authors = await Author.find({});
 
-        res.status(200).json(types);
+        res.status(200).json(authors);
     } catch (error) {
         res.status(404).json({ message: error.message });
     }
 };
 
-export const getType = async (req, res) => {
+export const getAuthor = async (req, res) => {
     const { id } = req.params;
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send("Not a valid action");
 
     try {
-        const type = await Type.findById(id);
+        const type = await Author.findById(id);
 
         res.status(200).json(type);
     } catch (error) {
@@ -25,15 +25,15 @@ export const getType = async (req, res) => {
     }
 };
 
-export const createType = async (req, res) => {
-    const { type } = req.body;
+export const createAuthor = async (req, res) => {
+    const { author } = req.body;
 
-    const existingType = await Type.find({ typeName: type });
-    if (existingType.length > 0)
-        return res.status(404).json({ message: "Type with the same name already exist" });
+    const existingAuthor = await Author.find({ authorName: author });
+    if (existingAuthor.length > 0)
+        return res.status(404).json({ message: "Author with the same name already exist" });
 
     try {
-        const result = await Type.create({ typeName: type });
+        const result = await Author.create({ authorName: author });
 
         res.status(201).json(result);
     } catch (error) {
@@ -41,34 +41,34 @@ export const createType = async (req, res) => {
     }
 };
 
-export const updateType = async (req, res) => {
+export const updateAuthor = async (req, res) => {
     const { id: _id } = req.params;
-    const { type } = req.body;
+    const { author } = req.body;
 
     if (!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send("Not a valid action");
 
     try {
-        const updatedType = await Type.findByIdAndUpdate(
+        const updatedAuthor = await Author.findByIdAndUpdate(
             _id,
-            { typeName: type, _id },
+            { authorName: author, _id },
             { new: true }
         );
 
-        res.status(200).json(updatedType);
+        res.status(200).json(updatedAuthor);
     } catch (error) {
         res.status(404).json({ message: error.message });
     }
 };
 
-export const deleteType = async (req, res) => {
+export const deleteAuthor = async (req, res) => {
     const { id } = req.params;
 
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send("Not a valid action");
 
     try {
-        await Type.findByIdAndRemove(id);
+        await Author.findByIdAndRemove(id);
 
-        res.json({ message: "Type deleted successfully!!" });
+        res.json({ message: "Author deleted successfully!!" });
     } catch (error) {
         res.status(404).json({ message: error.message });
     }

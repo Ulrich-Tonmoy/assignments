@@ -1,3 +1,5 @@
+import Author from "./../models/author.js";
+import Tag from "./../models/tag.js";
 import Article from "../models/article.js";
 import { mongoose } from "mongoose";
 
@@ -31,11 +33,19 @@ export const createArticle = async (req, res) => {
     if (existingArticle.length > 0)
         return res.status(404).json({ message: "Article with the same title already exist" });
 
-    const newArticle = new Article({
-        ...article,
-        createdAt: new Date().toISOString(),
+    const author = await Author.findOne({ authorName: article.author });
+    const allTags = await Tag.find({ $in: { tagName: article.tags } });
+    let tags = [];
+    allTags.forEach((tag) => {
+        tags.push(tag._id);
     });
 
+    const newArticle = new Article({
+        ...article,
+        tagIds: tags,
+        authorId: author._id,
+        createdAt: new Date().toISOString(),
+    });
     try {
         await newArticle.save();
         res.status(201).json(newArticle);
