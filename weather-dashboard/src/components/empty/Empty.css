@@ -1,0 +1,18 @@
+.empty-container {
+  width: 100%;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+.empty-container > p {
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .empty-container {
+    min-height: 400px;
+  }
+}

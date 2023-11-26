@@ -1,0 +1,15 @@
+body {
+  font-family: "Roboto", Arial, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(300deg, #ced1d6, #bfc0c0);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 96vh;
+  box-sizing: border-box;
+}
+
+code {
+  font-family: "Courier New", monospace;
+}
