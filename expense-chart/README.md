@@ -11,6 +11,21 @@
 - Run `npm i` in terminal to install dependency.
 - Run `npm run dev` in terminal and open [http://localhost:3000/](http://localhost:3000/) in browser.
 
+### Feedback:
+
+- The fonts were not imported from any CDN, no webfonts were used, hence, the correct font won’t be visible on users' devices if they don’t have the font installed on it.
+- on `index.css:22` the font name should usually be wrapped in quotation marks.
+- Good thing that the data was imported from the json file directly, but the types.ts file contains static enum for Period, if json is updated, it won’t be updated automatically.
+- The spelling is "Doughnut” btw, great that you utilized dynamic fraction for the number value in the center.
+- The method “formatWithThousandSeparators” can be eliminated by utilizing “toLocaleString” native js method
+- The chart was a mix of svg and div elements, if conic gradient is to be used, the svg was not needed, or the entire chart could be generated in svg, which would prevent the chart from being pixelated in high-resolution displays.
+
+Well done on:
+
+- Good css with vars
+- Good git commits
+- Organized readme file
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
