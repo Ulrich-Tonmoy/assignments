@@ -1,0 +1,39 @@
+.label-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.label-container > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.label {
+  height: 10px;
+  width: 30px;
+  border-radius: 50px;
+}
+.color-personal {
+  background: var(--chart-personal);
+}
+.color-shopping {
+  background: var(--chart-shopping);
+}
+.color-phone {
+  background: var(--chart-phone);
+}
+.color-other {
+  background: var(--chart-other);
+}
+
+.label-title {
+  color: var(--text-secondary);
+  text-transform: capitalize;
+  font-size: 14px;
+}

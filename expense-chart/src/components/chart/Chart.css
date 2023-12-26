@@ -1,0 +1,35 @@
+.chart-container {
+  width: 400px;
+  height: 500px;
+  background: var(--white);
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5%;
+  -webkit-border-radius: 5%;
+  -moz-border-radius: 5%;
+  -ms-border-radius: 5%;
+  -o-border-radius: 5%;
+}
+
+.chart-title {
+  color: var(--text-primary);
+  font-weight: 800;
+  font-size: 2.2rem;
+}
+
+.donut_chart {
+  padding: 10px;
+  margin: 10px;
+  width: 250px;
+  height: 250px;
+}
+
+@media only screen and (max-width: 425px) {
+  .chart-container {
+    width: 300px;
+    height: 500px;
+  }
+}
